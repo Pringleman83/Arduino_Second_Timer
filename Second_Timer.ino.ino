@@ -2,7 +2,7 @@
  * Second Timer
  * ============
  * 
- * This code enables you to use millis() without having to store multiple unsigned long int variables to keep track of your timers.
+ * This code enables you to use millis() without having to store multiple unsigned long variables to keep track of your timers.
  * It also makes it easire to enter the necessary calculations.
  * It could be adapted to work directly with milliseconds, microseconds and even the other way to minutes, hours and days.
  */
