@@ -2,7 +2,7 @@
  * Second Timer
  * ============
  * 
- * This code enables you to use millis() without having to store multiple unsigned long int variables to keep track of your timers.
+ * This code enables you to use millis() without having to store multiple unsigned long variables to keep track of your timers.
  * It also makes it easire to enter the necessary calculations.
  * It could be adapted to work directly with milliseconds, microseconds and even the other way to minutes, hours and days.
  * 
@@ -10,8 +10,8 @@
  */
 
 //Important variables - Place this section at the top of your code.
-int startLoopSeconds = 0;
-int endLoopSeconds = 0;
+unsigned long startLoopSeconds = 0;
+unsigned long endLoopSeconds = 0;
 unsigned long previousMillis = millis();
 unsigned long previousMillisOld;
 //End of important variables.
@@ -50,7 +50,7 @@ Serial.println("Ten seconds have passed since the last ten second message.");
 //End of sample test conditions.
 
 //End of loop timer - Place this at the end of your main loop().
-if(millis() - previousMillisOld >= 1000){
+if(millis() - previousMillisOld >= 1000 || endLoopSeconds == 0){
   endLoopSeconds++;
 }
 //End of end of loop timer.
