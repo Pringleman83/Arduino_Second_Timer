@@ -8,8 +8,8 @@
  */
 
 //Important variables - Place this section at the top of your code.
-int startLoopSeconds = 0;
-int endLoopSeconds = 0;
+unsigned long startLoopSeconds = 0;
+unsigned long endLoopSeconds = 0;
 unsigned long previousMillis = millis();
 unsigned long previousMillisOld;
 //End of important variables.
@@ -33,7 +33,7 @@ previousMillis = millis();
 //Add your code here
 
 //End of loop timer - Place this at the end of your main loop().
-if(millis() - previousMillisOld >= 1000){
+if(millis() - previousMillisOld >= 1000 || endLoopSeconds == 0){
   endLoopSeconds++;
 }
 //End of end of loop timer.
