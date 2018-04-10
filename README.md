@@ -7,7 +7,7 @@ Of course, delay() has the huge disadvantage of locking up your code until the d
 
 The main disadvantage we briefly discussed with millis() was the need to create multiple unsigned long variables. A new such variable is required for each timer. In my own experience I know that this can make code 'clunky', difficult to read and debug, and an absolute headache to work with. Another disadvantage was that the maths involved (although simple when understood) can appear to be daunting, not very friendly to new users.
 
-This code makes life much easier. It requires two unsigned long variables and two int variables. It counts in seconds for ease as I believe most basic projects tend to stick to second timings (I'll be looking at writing a version that works with milliseconds and possibly microseconds too). Multiple test cases can be added with no further variables and, although there is an extra condition to add to each test, the maths involved is farily simple. See the below example of a test condition:
+This code makes life much easier. It requires four unsigned long variables no matter how many timed events your code includes. It counts in seconds for ease as I believe most basic projects tend to stick to second timings (I'll be looking at writing a version that works with milliseconds and possibly microseconds too). Multiple test cases can be added with no further variables and, although there is an extra condition to add to each test, the maths involved is farily simple. See the below example of a test condition:
 
 if(startLoopSeconds%3 == 0 && startLoopSeconds == endLoopSeconds){
 Serial.println("Three seconds have passed since the last three second message.");
@@ -19,8 +19,8 @@ To use the code you will need to place three ections of it into your own code, a
 
 Section one - at the start of your code before the setup() loop:
 
-int startLoopSeconds = 0;
-int endLoopSeconds = 0;
+unsigned long startLoopSeconds = 0;
+unsigned long endLoopSeconds = 0;
 unsigned long previousMillis = millis();
 unsigned long previousMillisOld;
 
